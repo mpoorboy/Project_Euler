@@ -10,7 +10,15 @@ Find the difference between the sum of the squares of the first 100 natural numb
 */
 //Algorithm: TSS-(S)^2 = [3(n^4)+2(n^3)+3(n^2)-2(n^1)]/12
 public class ID6 {
-  public static void main(String[] args) {
-  }
+	public static void main(String[] args) {
+		int n = 100;
+		int sum = 0, tss = 0, diff = 0;
+		for (int i = 0; i <= n; i++) {
+			sum += i;
+			tss += (i * i);
+			diff = (sum * sum) - tss;
+		}
+		System.out.println(diff);
+	}
 }
-//Answer: 25164150
+// Answer: 25164150
