@@ -22,3 +22,4 @@ class ID3 {
 		System.out.println(max);
 	}
 }
+//Answer: 6857
