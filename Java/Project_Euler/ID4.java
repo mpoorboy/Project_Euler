@@ -5,13 +5,13 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 */
 class ID4 {
 public static boolean isPalindrome(int nr) {
-    int rev = 0;                    // the reversed number
-    int x = nr;                     // store the default value (it will be changed)
+    int rev = 0;                    
+    int x = nr;                     
     while (x > 0) {
         rev = 10 * rev + x % 10;
         x /= 10;
     }
-    return nr == rev;               // returns true if the number is palindrome
+    return nr == rev;               
 }
 
 public static void main(String[] args) {
@@ -32,3 +32,4 @@ public static void main(String[] args) {
     System.out.println(max);
 }
 }
+//Answer: 906609
