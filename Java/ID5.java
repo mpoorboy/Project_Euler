@@ -4,22 +4,39 @@ ID: 5
 What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 */
 public class ID5 {
-  public static int LCM(int range) {
-    boolean notDiv = true;
-    int answer = 1;
-    while (notDiv) {
-      int count = 0;
-      for (int i = 1; i <= range; i++) {
-        if (answer % i == 0) {
-          count++;
+  public static boolean isPrime(int n) {
+    boolean prime = true;
+    if (n < 2)
+      return false;
+    if (n == 2)
+      return true;
+    if (n % 2 == 0)
+      return false;
+    for (int i = 3; i <= Math.sqrt(n); i += 2) {
+      if (n % i == 0) {
+        prime = false;
+        break;
+      }
+    }
+    return prime;
+  }
+
+  public static int LCM(int k) {
+    int lcm = 1;
+    for (int i = 2; i <= k; i++) {
+      if (isPrime(i)) {
+        lcm *= i;
+      } else if (lcm % i != 0) {
+        for (int j = 2; j < i; j++) {
+          if (i % j == 0) {
+            lcm *= j;
+            break;
+          }
         }
       }
-      if (count == range) {
-        return answer;
-      }
-      answer++;
     }
-    return -1;
+
+    return lcm;
   }
 
   public static void main(String[] args) {
