@@ -6,11 +6,24 @@ F1 = 1, F2 = 1, F3 = 2, F4 = 3, F5 = 5, F6 = 8, F7 = 13, F8 = 21, F9 = 34, F10 =
 The 12th term, F12, is the first term to contain three digits. What is the index of the first term in the Fibonacci sequence to
 contain 1000 digits?
 */
+import java.math.BigInteger;
 
 public class ID25 {
   public static void main(String args[]){
-  
+    BigInteger F1 = new BigInteger("1");
+		BigInteger F2 = new BigInteger("1");
+		BigInteger last;
+		String digits;
+		int index_num = 2;
+		
+		do {
+			last = F2;
+			F2 = F2.add(F1);
+			F1 = last;
+			digits = F2.toString();
+			index_num++;
+		} while (digits.length() < 1000);
+		System.out.println(index_num);
   }
 }
-
-// Answer:
+// Answer: 4782
